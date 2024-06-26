@@ -284,21 +284,21 @@ void DeleteItem(int value_to_delete,int quan)
     node *ptr=head;
     while(ptr!=NULL)
     {
-        if(ptr->data=value_to_delete)
+        if(ptr->data == value_to_delete)
         {
             ptr->quantity+=quan;
             break;
         }
-        cout << 1;
+        //cout << 1;
         ptr = ptr->next;
     }
     if(cq[value_to_delete] == quan){
     bool found = false;
-    for (size_t i = 0; i < get_food_choice.size(); ++i)
+    for (int i = 0; i < get_food_choice.size(); i++)
     {
         if (get_food_choice[i] == value_to_delete)
         {
-            for (size_t j = i; j < get_food_choice.size() - 1; ++j)
+            for (int j = i; j < get_food_choice.size() - 1; j++)
             {
                 get_food_choice[j] = get_food_choice[j + 1];
             }
@@ -1353,9 +1353,10 @@ fcquantity:
                         {
                             if(ptr->data==serial)
                             {
-                                totalmoney-=(ptr->data*quan);
+                                totalmoney-=(ptr->price*quan);
                                 break;
                             }
+                            ptr = ptr->next;
                         }
                     }
                     break;
